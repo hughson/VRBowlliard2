@@ -13,6 +13,7 @@
 
   const LINKS = [
     ['home', '', 'The Game'],
+    ['story', 'pages/story.html', 'Story'],
     ['about', 'pages/about.html', 'About'],
     ['support', 'pages/support.html', 'Support']
   ];
@@ -38,6 +39,7 @@
       <div class="wrap">
         <div>© ${new Date().getFullYear()} Deucejuice Studios</div>
         <nav>
+          <a href="${root}pages/story.html">Story</a>
           <a href="${root}pages/about.html">About</a>
           <a href="${root}pages/support.html">Support</a>
           <a href="${root}pages/privacy.html">Privacy</a>
