@@ -17,6 +17,9 @@
     ['support', 'pages/support.html', 'Support']
   ];
 
+  // External, so it sits outside LINKS (no data-nav state, opens in a new tab).
+  const DISCORD = 'https://discord.gg/93efkcDKPG';
+
   const current = document.body.dataset.nav || '';
 
   const nav = LINKS.map(([id, path, label]) =>
@@ -26,7 +29,7 @@
     <header class="site-head">
       <div class="wrap">
         <a class="brand" href="${root}"><span class="dot"></span> <span class="chrome">VR Bowlliards</span> <span class="gold">2</span></a>
-        <nav class="nav">${nav}</nav>
+        <nav class="nav">${nav}<a class="nav-discord" href="${DISCORD}" target="_blank" rel="noopener">Discord</a></nav>
       </div>
     </header>`);
 
@@ -38,6 +41,7 @@
           <a href="${root}pages/about.html">About</a>
           <a href="${root}pages/support.html">Support</a>
           <a href="${root}pages/privacy.html">Privacy</a>
+          <a href="${DISCORD}" target="_blank" rel="noopener">Discord</a>
         </nav>
       </div>
     </footer>`);

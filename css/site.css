@@ -398,3 +398,7 @@ p{margin:0 0 1em}
   .hero{padding:32px 0 48px}
   .hero-stats{gap:24px}
 }
+
+/* Discord — external link, distinguished from the internal nav items. */
+.nav-discord { color: var(--gold, #d9a441); }
+.discord-cta { margin: 0 0 .35rem; }
