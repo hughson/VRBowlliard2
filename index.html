@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VR Bowlliards 2 — Deucejuice Studios</title>
-<meta name="description" content="Bowling scored on a pool table, in VR. Real cue physics on Meta Quest 3, played solo or head to head.">
-<link rel="icon" href="assets/logo.png">
+<title>The Last Rack — Deucejuice Studios</title>
+<meta name="description" content="The Last Rack is a late-night pool hall in VR for Meta Quest: pool with real cue physics, Bowlliards, darts, poker and a blues jukebox, on your own or with a room full of people.">
+<link rel="icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
@@ -15,53 +15,77 @@
 
 <section class="hero">
   <div class="wrap center">
-    <img class="hero-art" src="assets/logo.png" alt="VR Bowlliards 2" width="1200" height="512">
-    <p class="lede">Ten frames, ten balls, one table. Bowling's scoring on a pool
-      table, with real cue physics on Meta Quest 3 — played solo or head to head.</p>
+    <h1 style="margin:0"><img class="hero-art sign" src="assets/last-rack.webp"
+      alt="The Last Rack: poker, pool, darts, blues" width="1400" height="700"></h1>
+    <p class="lede">A late-night pool hall in VR. Shoot pool with real cue physics, throw
+      darts, sit down to a hand of poker and put a blues record on the jukebox, on your
+      own or with a room full of people. On Meta Quest.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="pages/about.html">How it plays</a>
+      <a class="btn btn-primary" href="pages/about.html">What's in the pub</a>
+      <a class="btn" href="pages/leaderboards.html">Leaderboards</a>
       <a class="btn" href="pages/story.html">Read the comic</a>
     </div>
-    <div class="hero-stats">
-      <div><b class="chrome">10</b><span>Frames</span></div>
-      <div><b class="chrome">2</b><span>Players</span></div>
-      <div><b class="chrome">VR</b><span>Quest 3 &amp; 3S</span></div>
+    <!-- Live counts from the game. Hidden until there is something real to show — see
+         js/live-stats.js. `hidden` in the markup means it never flashes empty on load, and
+         an empty hero reads fine because the sign, lede and buttons carry it on their own. -->
+    <div class="hero-stats live-stats" id="live-stats" hidden>
+      <div>
+        <b class="chrome" data-live-players>0</b>
+        <span>Playing now</span>
+      </div>
+      <div>
+        <b class="chrome" data-live-rooms>0</b>
+        <span data-live-noun>Rooms open</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>The game</h2></div>
+    <div class="section-head"><h2>What's in the pub</h2></div>
     <div class="features">
       <div class="feature">
-        <span class="ico">🎳</span>
-        <h3>Bowling, on cloth</h3>
-        <p>Ten object balls, two visits a frame. Run the rack in one and you've struck;
-          clear it in two and you've spared. Bowling's scoring, every point off a cue ball.</p>
+        <span class="ico">🎱</span>
+        <h3>Pool, played properly</h3>
+        <p>Eight ball, nine ball, cowboy pool and free play. Where you place the tip gives
+          you english, draw and follow, and lifting the butt gives you jumps and massé.</p>
       </div>
       <div class="feature">
-        <span class="ico">🎱</span>
-        <h3>Real cue physics</h3>
-        <p>Where you place the tip drives english and draw, elevation gives you jumps
-          and massé, and sidespin deflects the cue ball the way a real tip does.</p>
+        <span class="ico">🎳</span>
+        <h3>Bowlliards</h3>
+        <p>Ten balls, two visits a frame, bowling's scoring. Play it solo, head to head or
+          as a pair. Bowl a perfect 300. That's all we're saying.</p>
+      </div>
+      <div class="feature">
+        <span class="ico">🎯</span>
+        <h3>Darts</h3>
+        <p>501, 301, Cricket and Around the World on three boards, on your own or in a
+          match.</p>
+      </div>
+      <div class="feature">
+        <span class="ico">🃏</span>
+        <h3>Poker</h3>
+        <p>Texas Hold'em at a six-seat table, played with your hands: throw your cards in
+          to fold, tap the felt to check. Friends or the house regulars fill the seats.</p>
+      </div>
+      <div class="feature">
+        <span class="ico">🎷</span>
+        <h3>Blues on the jukebox</h3>
+        <p>A jukebox of original blues, with a few seasonal records when the calendar
+          calls for them.</p>
       </div>
       <div class="feature">
         <span class="ico">🤝</span>
-        <h3>Play together</h3>
-        <p>Head to head in a private room with a friend, or drop into a public hall
-          and take a table alongside everyone else.</p>
-      </div>
-      <div class="feature">
-        <span class="ico">🕹️</span>
-        <h3>Built for the room you have</h3>
-        <p>Full-stroke play in about two metres of space, with seated and
-          smaller-space play supported by a shortened stroke.</p>
+        <h3>A room full of people</h3>
+        <p>Walk into a public room, or open a private one and share the code. Voice chat
+          at the tables, and the <a href="pages/leaderboards.html" style="color:var(--cyan-hi)">leaderboards</a> on the wall.</p>
       </div>
     </div>
   </div>
 </section>
 
 <script src="js/chrome.js"></script>
+<script src="js/live-stats.js"></script>
 </body>
 </html>

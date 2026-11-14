@@ -1,5 +1,5 @@
 /* Shared header/footer, injected so nav lives in one place without a build step.
- * Each page sets <body data-nav="home|about|support|privacy">.
+ * Each page sets <body data-nav="home|boards|story|about|support|privacy">.
  *
  * Links are built from the site root derived at runtime from this script's own
  * URL, so the same file works from the root, from /pages/, and from a project
@@ -13,6 +13,7 @@
 
   const LINKS = [
     ['home', '', 'The Game'],
+    ['boards', 'pages/leaderboards.html', 'Leaderboards'],
     ['story', 'pages/story.html', 'Story'],
     ['about', 'pages/about.html', 'About'],
     ['support', 'pages/support.html', 'Support']
@@ -29,7 +30,7 @@
   document.body.insertAdjacentHTML('afterbegin', `
     <header class="site-head">
       <div class="wrap">
-        <a class="brand" href="${root}"><span class="dot"></span> <span class="chrome">VR Bowlliards</span> <span class="gold">2</span></a>
+        <a class="brand" href="${root}"><span class="dot neon-dot"></span> <span class="neon">The Last Rack</span></a>
         <nav class="nav">${nav}<a class="nav-discord" href="${DISCORD}" target="_blank" rel="noopener">Discord</a></nav>
       </div>
     </header>`);
@@ -39,6 +40,7 @@
       <div class="wrap">
         <div>© ${new Date().getFullYear()} Deucejuice Studios</div>
         <nav>
+          <a href="${root}pages/leaderboards.html">Leaderboards</a>
           <a href="${root}pages/story.html">Story</a>
           <a href="${root}pages/about.html">About</a>
           <a href="${root}pages/support.html">Support</a>

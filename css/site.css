@@ -1,7 +1,7 @@
 /* ============================================================
-   VR Bowlliards 2 — Deucejuice Studios
-   Palette taken from the game's splash art: electric cyan glow,
-   chrome lettering, a gold accent, deep slate ground.
+   The Last Rack — Deucejuice Studios
+   Electric cyan glow, chrome lettering, a gold accent, deep slate ground;
+   the neon sign's red and blue for the name itself (see the end of the file).
    No framework, no build step.
    ============================================================ */
 
@@ -402,3 +402,93 @@ p{margin:0 0 1em}
 /* Discord — external link, distinguished from the internal nav items. */
 .nav-discord { color: var(--gold, #d9a441); }
 .discord-cta { margin: 0 0 .35rem; }
+
+/* ---------- live stats ---------- */
+/* Sits under the static hero stats, visually subordinate to them: this is a live readout,
+   not a headline claim. Hidden by default and shown only when there is data. */
+/* These ARE the hero stats now, so no divider and no reduced size — the subordinate
+   treatment only made sense while the static 10/2/VR figures sat above them. */
+.live-stats{gap:40px}
+/* .hero-stats sets display:flex, which beats the browser's own rule for the `hidden` attribute:
+   without this the counter showed "0 playing now" instead of staying out of sight. */
+.live-stats[hidden]{display:none}
+.live-stats b::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;
+  background:var(--cyan-hi);box-shadow:0 0 9px -1px var(--cyan);
+  animation:live-pulse 2.4s ease-in-out infinite;
+}
+@keyframes live-pulse{0%,100%{opacity:.45}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .live-stats b::before{animation:none;opacity:.85}
+}
+
+/* ---------- The Last Rack: the neon sign's colours ---------- */
+:root{ --neon:#ff4a3d; --neon-hi:#ff8a7a; --neon-lo:#b3261c; --sign-blue:#58b4ff; }
+/* The sign is cut out (no backdrop of its own), so it needs no dissolving mask. */
+.hero-art.sign{
+  width:min(640px,90%);
+  -webkit-mask-image:none;mask-image:none;
+  filter:drop-shadow(0 0 34px rgba(255,74,61,.28)) drop-shadow(0 12px 30px rgba(0,0,0,.6));
+}
+.brand .neon{
+  color:#fff3ea;
+  text-shadow:0 0 6px rgba(255,74,61,.95),0 0 18px rgba(255,74,61,.7),0 0 34px rgba(255,74,61,.45);
+}
+.brand .dot.neon-dot{
+  background:radial-gradient(circle at 34% 30%,#fff 6%,var(--neon-hi) 40%,var(--neon-lo) 100%);
+  box-shadow:0 0 0 1px #0007 inset,0 0 14px -1px var(--neon);
+}
+.tagline{
+  font-family:var(--display);text-transform:uppercase;letter-spacing:.3em;font-weight:600;
+  font-size:13px;color:var(--sign-blue);margin:0 0 16px;
+  text-shadow:0 0 14px rgba(88,180,255,.55);
+}
+
+/* ---------- leaderboards ---------- */
+.lb-intro{max-width:70ch;margin-bottom:26px}
+.lb-intro h1{margin-bottom:.25em}
+.lb-controls{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.lb-row{display:flex;flex-wrap:wrap;gap:9px}
+.lb-row.lb-games .chip{padding:10px 22px;font-size:13px}
+.lb-panel{padding:22px 24px 18px;--lb:var(--cyan-hi)}
+.lb-panel[data-accent="gold"]{--lb:var(--gold)}
+.lb-panel[data-accent="silver"]{--lb:#d2d8e2}
+.lb-panel[data-accent="ice"]{--lb:var(--cyan-hi)}
+.lb-title{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.lb-title h2{margin:0;color:var(--lb);font-size:clamp(1.35rem,2.6vw,1.9rem)}
+.lb-period{
+  font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+  font-size:13px;color:var(--muted);
+}
+.lb-about{margin:6px 0 14px;color:var(--muted);font-size:13.5px;max-width:80ch}
+.lb-table{font-variant-numeric:tabular-nums}
+.lb-table th.lb-rank-h{width:4.5ch}
+.lb-table th.lb-val-h,.lb-table td.lb-val{text-align:right;white-space:nowrap}
+.lb-table td{padding:10px 14px}
+.lb-table td.rank{font-size:1.1rem}
+.lb-table td.rank.r1{color:#ffd666;text-shadow:0 0 16px rgba(255,214,102,.45)}
+.lb-table td.rank.r2{color:#d2d8e2;text-shadow:0 0 14px rgba(210,216,226,.3)}
+.lb-table td.rank.r3{color:#d69660;text-shadow:0 0 14px rgba(214,150,96,.3)}
+.lb-name{overflow-wrap:anywhere}
+.lb-who{font-weight:600}
+.lb-val{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--lb)}
+.lb-note{margin-left:10px;font-family:var(--font);font-size:12px;font-weight:600;color:var(--muted)}
+.lb-badge{
+  display:inline-block;margin-left:9px;vertical-align:1px;
+  font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:2px 8px;border-radius:999px;border:1px solid var(--line-hi);color:var(--muted);white-space:nowrap;
+}
+.lb-badge.ultra{color:var(--cyan);border-color:var(--cyan-lo);background:rgba(70,205,240,.07)}
+.lb-badge.full{color:var(--gold);border-color:var(--gold-lo);background:rgba(237,180,87,.08)}
+.lb-badge.cue{color:#d9c3a0;border-color:#7a6a4c;background:rgba(217,195,160,.06)}
+.lb-table tr.lb-msg td{padding:34px 14px;text-align:center;color:var(--muted)}
+.lb-table tbody tr.lb-msg:hover{background:none}
+.lb-foot{margin:14px 0 0;font-size:12px;color:var(--muted);text-align:right}
+.lb-panel[aria-busy="true"] .lb-table tbody{opacity:.6}
+@media (max-width:560px){
+  .lb-panel{padding:16px 12px 14px}
+  .lb-table td,.lb-table th{padding:9px 8px}
+  .lb-badge{margin-left:6px}
+  .chip{padding:7px 13px;font-size:11px}
+}
